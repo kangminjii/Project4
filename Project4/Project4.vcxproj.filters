@@ -33,12 +33,6 @@
     <ClCompile Include="20230616_8queen.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="20230619_버블소트.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="20230621_단순선택정렬.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="20230628_퀵정렬.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
