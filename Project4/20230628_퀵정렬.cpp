@@ -4,107 +4,71 @@
 
 #include <iostream>
 
-const int NUM = 7;
+const int NUM = 9;
 using namespace std;
 
 void swap(int* a, int* b);
+void QuickSort(int arr[], int pl, int pivot, int pr);
 
 int main()
 {
-	int array[NUM] = { 5,8,4,2,6,1,3 };
-	//int array[NUM] = { 5,8,4,2,6,1,3,9,7 };
-	// 초기 설정
-	
-	int Left[NUM], Right[NUM];
+    // 정렬할 배열
+    int arr[NUM] = { 5, 7, 1, 4, 6, 2, 3, 9, 8 };
+    cout << "정렬 전 : " << endl;
+    for (int i = 0; i < NUM; i++)
+        cout << arr[i] << " ";
+    cout << endl;
 
-	for (int i = 0; i < NUM/2; i++)
-	{
-		Left[i] = array[i];
-		Right[i] = array[NUM - 1 - i];
-	}
+    int pl, pivot, pr;
+    int centerNum;
 
-	int* pivot = &array[NUM / 2];
-	int* pr = array;
-	int* pl = array + NUM - 1;
+    pivot = NUM / 2;
+    pl = 0;
+    pr = NUM - 1;
+    centerNum = arr[NUM / 2];
 
-	int prIndex = NUM - 1;
-	int plIndex = 0;
+    QuickSort(arr, pl, pivot, pr);
 
-	while (1)
-	{
-		if (pr < pivot) // pivot 이하값이 오른쪽에 있을때
-		{
-			if (pl >= pivot)
-			{
-				swap(pl, pr);
-				pr--;
-				pl++;
+    // 정렬된 배열
+    cout << "정렬 후 : " << endl;
+    for (int i = 0; i < NUM; i++)
+        cout << arr[i] << " ";
+    cout << endl;
 
-				prIndex--;
-				plIndex++;
-			}
-			else
-			{
-				pl++;
-				plIndex++;
-			}
-		}
-		else if (pl > pivot) // pivot 이상값이 왼쪽에 있을때
-		{
-			if (pr <= pivot)
-			{
-				swap(pl, pr);
-				pr--;
-				pl++;
-
-				prIndex--;
-				plIndex++;
-			}
-			else
-			{
-				prIndex--;
-				pr--;
-			}
-		}
-		else if (pr == pl) // pl과 pr이 만날때
-			{
-				swap(pl, pr);
-				pr--;
-				pl++;
-
-				prIndex--;
-				plIndex++;
-			}
-				
-		if (pr < pl)	break;
-	}
-
-	for (int i = 0; i < NUM; i++)
-		cout << array[i] << " ";
-
-	cout << endl;
-		
-		
-	//if(pr > array)
-
-
-
-	int i = 0;
-	while (0< prIndex)
-	{
-		i++;
-		Left[i] = array[i];
-	} 
-
-
-
-
-
+    return 0;
 }
 
 void swap(int* a, int* b)
 {
-	int* temp = a;
-	a = b;
-	b = temp;
+    int* temp = a;
+    a = b;
+    b = temp;
+}
+
+void QuickSort(int arr[], int pl, int pivot, int pr)
+{
+    // 처음 인덱스 값 저장
+    int left = pl;
+    int right = pr;
+
+    while (1)
+    {
+        //  pl과 pr 움직이기
+        while (arr[pivot] > arr[pl])
+            pl++;
+        while (arr[pivot] < arr[pr])
+            pr--;
+        //  swap
+        if (pl <= pr)
+        {
+            swap(arr[pl], arr[pr]);
+            pl++;
+            pr--;
+        }
+        // 종료조건
+        if (pr <= pl)      break;
+    }
+
+    if (left < pr) QuickSort(arr, left, (left + pr) / 2, pr);         // pr이 0이 될때까지 정렬
+    if (pl < right) QuickSort(arr, pl, (pl + right) / 2, right);  // pl이 NUM-1이 될때까지 정렬
 }
