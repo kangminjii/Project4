@@ -33,10 +33,10 @@
     <ClCompile Include="20230616_8queen.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="20230628_퀵정렬.cpp">
+    <ClCompile Include="StopWatch.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="StopWatch.cpp">
+    <ClCompile Include="20230630_병합정렬.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
