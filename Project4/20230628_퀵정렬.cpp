@@ -4,7 +4,7 @@
 
 #include <iostream>
 
-const int NUM = 9;
+const int SIZE = 9;
 using namespace std;
 
 void swap(int* a, int* b);
@@ -12,26 +12,18 @@ void QuickSort(int arr[], int pl, int pivot, int pr);
 
 int main()
 {
-    // 정렬할 배열
-    int arr[NUM] = { 5, 7, 1, 4, 6, 2, 3, 9, 8 };
+    // 정렬전
+    int arr[SIZE] = { 5, 7, 1, 4, 6, 2, 3, 9, 8 };
     cout << "정렬 전 : " << endl;
-    for (int i = 0; i < NUM; i++)
+    for (int i = 0; i < SIZE; i++)
         cout << arr[i] << " ";
     cout << endl;
 
-    int pl, pivot, pr;
-    int centerNum;
+    QuickSort(arr, 0, SIZE / 2, SIZE - 1);
 
-    pivot = NUM / 2;
-    pl = 0;
-    pr = NUM - 1;
-    centerNum = arr[NUM / 2];
-
-    QuickSort(arr, pl, pivot, pr);
-
-    // 정렬된 배열
+    // 정렬후
     cout << "정렬 후 : " << endl;
-    for (int i = 0; i < NUM; i++)
+    for (int i = 0; i < SIZE; i++)
         cout << arr[i] << " ";
     cout << endl;
 

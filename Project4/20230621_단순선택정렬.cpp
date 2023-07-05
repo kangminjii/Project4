@@ -10,8 +10,13 @@ p.226 Q7처럼 단순 선택 정렬 과정을 표시하라.
 using namespace std;
 
 const int SIZE = 7;
+static int exchangeNumber = 0;
+static int compareNumber = 0;
+
 void swap(int* a, int* b);
 void print(int i, int temp2, int* array);
+void SelectionSort1(int* arr);
+void SelectionSort2(int* arr);
 
 int main()
 {
@@ -21,55 +26,28 @@ int main()
     s.start();
     for (int k = 0; k < 1000000; k++)
     {
-        int array[SIZE] = { 6,4,8,3,1,9,7 };
-        for (int i = 0; i < SIZE; i++)
-        {
-            int min = array[i];
-            int temp2 = 0;
-            int swapIndex = 0;
-            for (int j = i + 1; j < SIZE; j++)
-            {
-                if (array[j] < min)
-                {
-                    min = array[j];
-                    temp2 = j;
-                    swapIndex = j;
-                }
-            }
-            //print(i, temp2, array);
-            swap(array[i], array[swapIndex]);
-        }
+        int arr[SIZE] = { 6,4,8,3,1,9,7 };
+        SelectionSort1(arr);
     } 
     s.stop();
-    cout << "단순선택정렬 1번방법 백만번 돌릴 때 : " << s.getElapsedTime() << "ms 경과" << endl;
+    cout << "단순선택정렬 1번" << endl;
+    cout << "총 비교를 " << compareNumber << "회 했습니다." << endl;
+    cout << "총 교환을 " << exchangeNumber << "회 했습니다." << endl << endl;
+    cout << s.getElapsedTime() << "ms 경과" << endl;
 
     // #2
    
     s.start();
-
     for (int k = 0; k < 1000000; k++)
     {
-        int array2[SIZE] = { 6,4,8,3,1,9,7 };
-        for (int i = 0; i < SIZE; i++)
-        {
-            // 정렬
-            int min = array2[i];
-            int temp2 = 0;
-            for (int j = i + 1; j < SIZE; j++)
-            {
-                if (array2[j] < min)
-                {
-                    min = array2[j];
-                    temp2 = j;
-
-                    //print(i, temp2, array2);
-                    swap(array2[i], array2[j]);
-                }
-            }
-        }
+        int arr[SIZE] = { 6,4,8,3,1,9,7 };
+        SelectionSort2(arr);
     } 
     s.stop();
-    cout << "단순선택정렬 2번방법 백만번 돌릴 때 : " << s.getElapsedTime() << "ms 경과" << endl;
+    cout << "단순선택정렬 2번" << endl;
+    cout << "총 비교를 " << compareNumber << "회 했습니다." << endl;
+    cout << "총 교환을 " << exchangeNumber << "회 했습니다." << endl << endl;
+    cout << s.getElapsedTime() << "ms 경과" << endl;
 
     return 0;
 }
@@ -78,7 +56,7 @@ void swap(int* a, int* b)
 {
     int* temp = a;
     a = b;
-    b = temp;
+    b = temp;   
 }
 
 void print(int i, int temp2, int* array)
@@ -107,4 +85,53 @@ void print(int i, int temp2, int* array)
         cout << array[k] << ' ';
 
     cout << endl;
+}
+
+void SelectionSort1(int* arr)
+{
+    compareNumber = 0;
+    exchangeNumber = 0;
+    for (int i = 0; i < SIZE; i++)
+    {
+        int min = arr[i];
+        int temp2 = 0;
+        int swapIndex = 0;
+        for (int j = i + 1; j < SIZE; j++)
+        {
+            compareNumber++;
+            if (arr[j] < min)
+            {
+                min = arr[j];
+                temp2 = j;
+                swapIndex = j;
+            }
+        }
+        //print(i, temp2, arr);
+        swap(arr[i], arr[swapIndex]);
+        exchangeNumber++;
+    }
+}
+
+void SelectionSort2(int* arr)
+{
+    compareNumber = 0;
+    exchangeNumber = 0;
+    for (int i = 0; i < SIZE; i++)
+    {
+        // 정렬
+        int min = arr[i];
+        int temp2 = 0;
+        for (int j = i + 1; j < SIZE; j++)
+        {
+            compareNumber++;
+            if (arr[j] < min)
+            {
+                min = arr[j];
+                temp2 = j;
+                //print(i, temp2, arr);
+                swap(arr[i], arr[j]);
+                exchangeNumber++;
+            }
+        }
+    }
 }

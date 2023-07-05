@@ -8,140 +8,71 @@ static int compareNumber = 0;
 
 void swap(int*, int*);
 void maxNumber(int*, int*, int*);
+void HeapSort(int*);
+void BubbleSort3(int*);
+void SelectionSort2(int*);
+void QuickSort(int arr[], int pl, int pivot, int pr);
 
 int main()
 {
 	StopWatch s;
 
-	//int arr[SIZE] = { 10,9,5,8,3,2,4,6,7,1 };
-	// 10,9,5,8,3,2,4,6,7,1
-
-	/*cout << "BEFORE : " << endl;
-	for (int k = 0; k < SIZE; k++)
-		cout << arr[k] << " ";
-	cout << endl;*/
-
-	int j = 0;
-	int temp = SIZE;
-
+	// heap sort
 	s.start();
 	for (int z = 0; z < 1000000; z++)
 	{
 		int arr[SIZE] = { 4,7,6,3,1,7,8,3,1,10};
-
-		/*for (int k = 0; k < SIZE; k++)
-			cout << arr[k] << " ";
-		cout << endl;*/
-
-		// 힙으로 만들기
-		for (int k = 0; k <= SIZE / 2 - 1; k++)
-		{
-			for (int i = 0; i <= (temp / 2) - 1; i++)
-			{
-				if (temp > i * 2 + 2)
-					maxNumber(&arr[i], &arr[i * 2 + 1], &arr[i * 2 + 2]);
-				else
-				{
-					if (arr[i] < arr[i * 2 + 1])
-						swap(arr[i], arr[i * 2 + 1]);
-				}
-			}
-			/*for (int k = 0; k < SIZE; k++)
-				cout << arr[k] << " ";
-			cout << endl;*/
-		}
-
-		while (j != SIZE)
-		{
-			for (int i = 0; i <= (temp / 2) - 1; i++)
-			{
-				if (temp > i * 2 + 2)
-					maxNumber(&arr[i], &arr[i * 2 + 1], &arr[i * 2 + 2]);
-				else
-				{
-					if (arr[i] < arr[i * 2 + 1])
-						swap(arr[i], arr[i * 2 + 1]);
-				}
-			}
-
-			for (int k = 0; k < SIZE; k++)
-				cout << arr[k] << " ";
-			cout << endl;
-
-			swap(arr[0], arr[SIZE - 1 - j]);
-			j++;
-			temp -= 1;
-		}
+		HeapSort(arr);
 	}
 	s.stop();
 	
-	/*cout << "AFTER : " << endl;
-	for (int k = 0; k < SIZE; k++)
-		cout << arr[k] << " ";
-	cout << endl;*/
-
+	cout << "Heap sort : " << s.getElapsedTime() << "ms" << endl;
 	cout << "교환 횟수 : " << exchangeNumber << endl;
-	cout << "비교 횟수 : " << compareNumber << endl;
-	cout << "heap sort : " << s.getElapsedTime() << "ms" << endl;
+	cout << "비교 횟수 : " << compareNumber << endl << endl;
+	
 
-	//// 버블소트
+	// bubble sort
+	s.start();
+	for (int z = 0; z < 1000000; z++)
+	{
+		int arr[SIZE] = { 4,7,6,3,1,7,8,3,1,10 };
+		BubbleSort3(arr);
+	}
+	s.stop();
 
-	//int count, temp1;
-	//int exchangeNumber, compareNumber;
+	cout << "Bubble sort : " << s.getElapsedTime() << "ms" << endl;
+	cout << "교환 횟수 : " << exchangeNumber << endl;
+	cout << "비교 횟수 : " << compareNumber << endl << endl;
 
-	//int location, symbol;
-	//s.start();
-	//for (int z = 0; z < 1000000; z++)
-	//{
-	//	int arr[SIZE] = { 6,4,8,3,1,9,7 }; // 정렬할 배열
-	//	count = 0;
-	//	temp1 = 0;
-	//	exchangeNumber = 0, compareNumber = 0;
-	//	location = 0;
+	// selection sort
+	s.start();
+	for (int z = 0; z < 1000000; z++)
+	{
+		int arr[SIZE] = { 4,7,6,3,1,7,8,3,1,10 };
+		SelectionSort2(arr);
+	}
+	s.stop();
 
-	//	while (temp1 < SIZE - 1)
-	//	{
-	//		int last = SIZE - 1; // 마지막 인덱스 값
+	cout << "Selection sort : " << s.getElapsedTime() << "ms" << endl;
+	cout << "교환 횟수 : " << exchangeNumber << endl;
+	cout << "비교 횟수 : " << compareNumber << endl << endl;
 
-	//		for (int j = SIZE - 1; j > temp1; j--)
-	//		{
-	//			if (arr[j] < arr[j - 1])  // 정렬 시행
-	//			{
-	//				last = j;
-	//				swap(arr[j], arr[j - 1]);
-	//			}
-	//		}
-	//		temp1 = last;
-	//	}
-	//}
-	//s.stop();
+	// quick sort
+	s.start();
+	for (int z = 0; z < 1000000; z++)
+	{
+		compareNumber = 0;
+		exchangeNumber = 0;
+		int arr[SIZE] = { 4,7,6,3,1,7,8,3,1,10 };
+		QuickSort(arr, 0, SIZE / 2, SIZE - 1);
+	}
+	s.stop();
 
-	//cout << "bubble sort : " << s.getElapsedTime() << "ms" << endl;
+	cout << "Quick sort : " << s.getElapsedTime() << "ms" << endl;
+	cout << "교환 횟수 : " << exchangeNumber << endl;
+	cout << "비교 횟수 : " << compareNumber << endl << endl;
+	
 
-	//// selection sort
-	//s.start();
-	//for (int z = 0; z < 1000000; z++)
-	//{
-	//	int array[SIZE] = { 6,4,8,3,1,9,7 };
-	//	for (int i = 0; i < SIZE; i++)
-	//	{
-	//		int min = array[i];
-	//		int temp2 = 0;
-	//		int swapIndex = 0;
-	//		for (int j = i + 1; j < SIZE; j++)
-	//		{
-	//			if (array[j] < min)
-	//			{
-	//				min = array[j];
-	//				temp2 = j;
-	//				swapIndex = j;
-	//			}
-	//		}
-	//		swap(array[i], array[swapIndex]);
-	//	}
-	//}
-	//s.stop();
-	//cout << "selection sort : " << s.getElapsedTime() << "ms" << endl;
 	return 0;
 }
 
@@ -150,8 +81,6 @@ void swap(int* a, int* b)
 	int temp = *a;
 	*a = *b;
 	*b = temp;
-
-	exchangeNumber++;
 }
 
 void maxNumber(int* top, int* left, int* right)
@@ -162,10 +91,12 @@ void maxNumber(int* top, int* left, int* right)
 		if (*left < *right) // top < left < right
 		{
 			swap(top, right);
+			exchangeNumber++;
 		}
 		else // top, right < left
 		{
 			swap(top, left);
+			exchangeNumber++;
 		}
 	}
 	else
@@ -173,6 +104,147 @@ void maxNumber(int* top, int* left, int* right)
 		if (*top < *right) // left <= top < right
 		{
 			swap(top, right);
+			exchangeNumber++;
 		}
 	}
+}
+
+void HeapSort(int* arr)
+{
+	exchangeNumber = 0;
+	compareNumber = 0;
+	int j = 0;
+	int temp = SIZE;
+
+	// 힙으로 만들기
+	for (int k = 0; k <= SIZE / 2 - 1; k++)
+	{
+		for (int i = 0; i <= (temp / 2) - 1; i++)
+		{
+			if (temp > i * 2 + 2)
+				maxNumber(&arr[i], &arr[i * 2 + 1], &arr[i * 2 + 2]);
+			else
+			{
+				if (arr[i] < arr[i * 2 + 1])
+					swap(arr[i], arr[i * 2 + 1]);
+				exchangeNumber++;
+			}
+		}
+	}
+
+	while (j != SIZE)
+	{
+		for (int i = 0; i <= (temp / 2) - 1; i++)
+		{
+			if (temp > i * 2 + 2)
+				maxNumber(&arr[i], &arr[i * 2 + 1], &arr[i * 2 + 2]);
+			else
+			{
+				if (arr[i] < arr[i * 2 + 1])
+					swap(arr[i], arr[i * 2 + 1]);
+				exchangeNumber++;
+			}
+		}
+
+		/*for (int k = 0; k < SIZE; k++)
+			cout << arr[k] << " ";
+		cout << endl;*/
+
+		swap(arr[0], arr[SIZE - 1 - j]);
+		exchangeNumber++;
+		j++;
+		temp -= 1;
+	}
+}
+
+void BubbleSort3(int* arr)
+{
+	int count = 0;
+	int temp = 0;
+	exchangeNumber = 0;
+	compareNumber = 0;
+	int location = 0;
+	int symbol = 0;
+
+	while (temp < SIZE - 1)
+	{
+		int last = SIZE - 1; // 마지막 인덱스 값
+
+		for (int j = SIZE - 1; j > temp; j--)
+		{
+			if (arr[j] < arr[j - 1])  // 정렬 시행
+			{
+				last = j;
+				symbol = 1;
+				swap(arr[j], arr[j - 1]);
+				exchangeNumber++;
+				compareNumber++;
+			}
+			else
+			{
+				symbol = -1;
+				compareNumber++;
+			}
+		}
+		temp = last;
+	}
+}
+
+void SelectionSort2(int* arr)
+{
+	compareNumber = 0;
+	exchangeNumber = 0;
+	for (int i = 0; i < SIZE; i++)
+	{
+		// 정렬
+		int min = arr[i];
+		int temp2 = 0;
+		for (int j = i + 1; j < SIZE; j++)
+		{
+			compareNumber++;
+			if (arr[j] < min)
+			{
+				min = arr[j];
+				temp2 = j;
+				swap(arr[i], arr[j]);
+				exchangeNumber++;
+			}
+		}
+	}
+}
+
+void QuickSort(int arr[], int pl, int pivot, int pr)
+{
+	// 처음 인덱스 값 저장
+	int left = pl;
+	int right = pr;
+
+	while (1)
+	{
+		//  pl과 pr 움직이기
+		while (arr[pivot] > arr[pl])
+		{
+			compareNumber++;
+			pl++;
+		}
+		while (arr[pivot] < arr[pr])
+		{
+			compareNumber++;
+			pr--;
+		}
+		//  swap
+		if (pl <= pr)
+		{
+			swap(arr[pl], arr[pr]);
+			compareNumber++;
+			exchangeNumber++;
+			pl++;
+			pr--;
+		}
+		// 종료조건
+		if (pr <= pl)      break;
+	}
+
+	if (left < pr) QuickSort(arr, left, (left + pr) / 2, pr);         // pr이 0이 될때까지 정렬
+	if (pl < right) QuickSort(arr, pl, (pl + right) / 2, right);  // pl이 NUM-1이 될때까지 정렬
 }
