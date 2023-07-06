@@ -142,7 +142,7 @@
     <ClCompile Include="20230616_8queen.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="20230619_버블소트.cpp">
+    <ClCompile Include="20230619_버블정렬.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="20230621_단순선택정렬.cpp">
@@ -157,9 +157,11 @@
     <ClCompile Include="20230630_병합정렬.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="20230703_힙정렬.cpp" />
-    <ClCompile Include="20230705_친구수.cpp">
+    <ClCompile Include="20230703_힙정렬.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="20230706_도수정렬.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="StopWatch.cpp" />
   </ItemGroup>

@@ -13,11 +13,11 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="소스 파일\정렬">
+      <UniqueIdentifier>{8adfbf43-0713-4d8f-bead-62064b818bd5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="20230626_셸정렬.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="20230602_Q3_이진검색.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
@@ -36,23 +36,26 @@
     <ClCompile Include="StopWatch.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="20230630_병합정렬.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="20230703_힙정렬.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="20230619_버블소트.cpp">
-      <Filter>소스 파일</Filter>
+    <ClCompile Include="20230619_버블정렬.cpp">
+      <Filter>소스 파일\정렬</Filter>
     </ClCompile>
     <ClCompile Include="20230621_단순선택정렬.cpp">
-      <Filter>소스 파일</Filter>
+      <Filter>소스 파일\정렬</Filter>
+    </ClCompile>
+    <ClCompile Include="20230626_셸정렬.cpp">
+      <Filter>소스 파일\정렬</Filter>
     </ClCompile>
     <ClCompile Include="20230628_퀵정렬.cpp">
-      <Filter>소스 파일</Filter>
+      <Filter>소스 파일\정렬</Filter>
     </ClCompile>
-    <ClCompile Include="20230705_친구수.cpp">
-      <Filter>소스 파일</Filter>
+    <ClCompile Include="20230630_병합정렬.cpp">
+      <Filter>소스 파일\정렬</Filter>
+    </ClCompile>
+    <ClCompile Include="20230703_힙정렬.cpp">
+      <Filter>소스 파일\정렬</Filter>
+    </ClCompile>
+    <ClCompile Include="20230706_도수정렬.cpp">
+      <Filter>소스 파일\정렬</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
