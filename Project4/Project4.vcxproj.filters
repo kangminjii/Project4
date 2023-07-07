@@ -57,6 +57,9 @@
     <ClCompile Include="20230706_도수정렬.cpp">
       <Filter>소스 파일\정렬</Filter>
     </ClCompile>
+    <ClCompile Include="20230707_브루트포스법.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="20230612_stackCalculate.h">
