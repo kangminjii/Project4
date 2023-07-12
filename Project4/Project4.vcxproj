@@ -166,6 +166,8 @@
     <ClCompile Include="20230707_브루트포스법.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="20230710_KMP.cpp" />
+    <ClCompile Include="20230712_보이어무어법.cpp" />
     <ClCompile Include="StopWatch.cpp" />
   </ItemGroup>
   <ItemGroup>
