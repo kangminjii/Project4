@@ -13,58 +13,121 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="소스 파일\정렬">
+    <Filter Include="소스 파일\제7장 문자열검색">
+      <UniqueIdentifier>{cd364544-520a-4edc-8790-8fb007e1b6e8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\제1장 기본알고리즘">
+      <UniqueIdentifier>{19b5e4ab-1eaa-4292-983a-e76d29e3f27f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\제2장 기본자료구조">
+      <UniqueIdentifier>{370a2739-55ea-4a93-931d-05405b51e133}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\제3장 검색">
+      <UniqueIdentifier>{1a5c6bcc-2ac8-4d0c-95c6-82b297786a7f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\제4장 스택과큐">
+      <UniqueIdentifier>{f4216cbc-27e0-4803-88a8-bb9a3a968eb8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\제5장 재귀">
+      <UniqueIdentifier>{b77a8c1e-dee5-48da-a347-43b955558403}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\제6장 정렬">
       <UniqueIdentifier>{8adfbf43-0713-4d8f-bead-62064b818bd5}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="20230602_Q3_이진검색.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="20230605_Q3.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="20230612_stackCalculate.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="20230612_use_stackCalculate.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="20230616_8queen.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="StopWatch.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="20230619_버블정렬.cpp">
-      <Filter>소스 파일\정렬</Filter>
+      <Filter>소스 파일\제6장 정렬</Filter>
     </ClCompile>
     <ClCompile Include="20230621_단순선택정렬.cpp">
-      <Filter>소스 파일\정렬</Filter>
+      <Filter>소스 파일\제6장 정렬</Filter>
     </ClCompile>
     <ClCompile Include="20230626_셸정렬.cpp">
-      <Filter>소스 파일\정렬</Filter>
+      <Filter>소스 파일\제6장 정렬</Filter>
     </ClCompile>
     <ClCompile Include="20230628_퀵정렬.cpp">
-      <Filter>소스 파일\정렬</Filter>
+      <Filter>소스 파일\제6장 정렬</Filter>
     </ClCompile>
     <ClCompile Include="20230630_병합정렬.cpp">
-      <Filter>소스 파일\정렬</Filter>
+      <Filter>소스 파일\제6장 정렬</Filter>
     </ClCompile>
     <ClCompile Include="20230703_힙정렬.cpp">
-      <Filter>소스 파일\정렬</Filter>
+      <Filter>소스 파일\제6장 정렬</Filter>
     </ClCompile>
     <ClCompile Include="20230706_도수정렬.cpp">
-      <Filter>소스 파일\정렬</Filter>
-    </ClCompile>
-    <ClCompile Include="20230707_브루트포스법.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="20230710_KMP.cpp">
-      <Filter>소스 파일</Filter>
+      <Filter>소스 파일\제6장 정렬</Filter>
     </ClCompile>
     <ClCompile Include="20230712_보이어무어법.cpp">
-      <Filter>소스 파일</Filter>
+      <Filter>소스 파일\제7장 문자열검색</Filter>
+    </ClCompile>
+    <ClCompile Include="20230707_브루트포스법.cpp">
+      <Filter>소스 파일\제7장 문자열검색</Filter>
+    </ClCompile>
+    <ClCompile Include="20230710_KMP.cpp">
+      <Filter>소스 파일\제7장 문자열검색</Filter>
+    </ClCompile>
+    <ClCompile Include="20230526_Q3.cpp">
+      <Filter>소스 파일\제1장 기본알고리즘</Filter>
+    </ClCompile>
+    <ClCompile Include="20230525_Q3.cpp">
+      <Filter>소스 파일\제1장 기본알고리즘</Filter>
+    </ClCompile>
+    <ClCompile Include="20230525_Q4.cpp">
+      <Filter>소스 파일\제1장 기본알고리즘</Filter>
+    </ClCompile>
+    <ClCompile Include="20230526_Q2.cpp">
+      <Filter>소스 파일\제1장 기본알고리즘</Filter>
+    </ClCompile>
+    <ClCompile Include="20230531_Q5.cpp">
+      <Filter>소스 파일\제2장 기본자료구조</Filter>
+    </ClCompile>
+    <ClCompile Include="20230529_Q5.cpp">
+      <Filter>소스 파일\제2장 기본자료구조</Filter>
+    </ClCompile>
+    <ClCompile Include="20230531_Q4.cpp">
+      <Filter>소스 파일\제2장 기본자료구조</Filter>
+    </ClCompile>
+    <ClCompile Include="20230602_Q3_이진검색.cpp">
+      <Filter>소스 파일\제3장 검색</Filter>
+    </ClCompile>
+    <ClCompile Include="20230601_Q4.cpp">
+      <Filter>소스 파일\제3장 검색</Filter>
+    </ClCompile>
+    <ClCompile Include="20230605_Q3.cpp">
+      <Filter>소스 파일\제4장 스택과큐</Filter>
+    </ClCompile>
+    <ClCompile Include="20230607_Q3.cpp">
+      <Filter>소스 파일\제4장 스택과큐</Filter>
+    </ClCompile>
+    <ClCompile Include="20230607_stack.cpp">
+      <Filter>소스 파일\제4장 스택과큐</Filter>
+    </ClCompile>
+    <ClCompile Include="20230608_queue.cpp">
+      <Filter>소스 파일\제4장 스택과큐</Filter>
+    </ClCompile>
+    <ClCompile Include="20230612_stackCalculate.cpp">
+      <Filter>소스 파일\제4장 스택과큐</Filter>
+    </ClCompile>
+    <ClCompile Include="20230612_use_stackCalculate.cpp">
+      <Filter>소스 파일\제4장 스택과큐</Filter>
+    </ClCompile>
+    <ClCompile Include="20230607_use_stack.cpp">
+      <Filter>소스 파일\제4장 스택과큐</Filter>
+    </ClCompile>
+    <ClCompile Include="20230608_use_queue.cpp">
+      <Filter>소스 파일\제4장 스택과큐</Filter>
+    </ClCompile>
+    <ClCompile Include="20230609_Q3.cpp">
+      <Filter>소스 파일\제5장 재귀</Filter>
+    </ClCompile>
+    <ClCompile Include="20230616_8queen.cpp">
+      <Filter>소스 파일\제5장 재귀</Filter>
+    </ClCompile>
+    <ClCompile Include="20230615_hanoiTower.cpp">
+      <Filter>소스 파일\제5장 재귀</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -72,6 +135,12 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="StopWatch.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="20230607_stack.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="20230608_queue.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
