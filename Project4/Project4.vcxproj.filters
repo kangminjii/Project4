@@ -34,6 +34,9 @@
     <Filter Include="소스 파일\제6장 정렬">
       <UniqueIdentifier>{8adfbf43-0713-4d8f-bead-62064b818bd5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\제8장 List">
+      <UniqueIdentifier>{e4edfa9d-1d9b-4cd3-9a15-856e1ec900ff}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="StopWatch.cpp">
@@ -128,6 +131,9 @@
     </ClCompile>
     <ClCompile Include="20230615_hanoiTower.cpp">
       <Filter>소스 파일\제5장 재귀</Filter>
+    </ClCompile>
+    <ClCompile Include="20230713_링크드리스트.cpp">
+      <Filter>소스 파일\제8장 List</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
