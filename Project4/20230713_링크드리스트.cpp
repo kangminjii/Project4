@@ -38,7 +38,7 @@ int main()
     StudentList* list = new StudentList;
     Initialize(list);
 
-    int number = 1, i = 0;
+    int number = 1;
 
     while (number != 0)
     {
