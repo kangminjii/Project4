@@ -151,7 +151,7 @@ int main()
 	int min = SIZE;
 	for (int i = 0; i < SIZE; i++)
 	{
-		if (pointing[i] > -1)
+		if (pointing[i] >= 1)
 		{
 			if (min > pointing[i])	
 				min = pointing[i];
