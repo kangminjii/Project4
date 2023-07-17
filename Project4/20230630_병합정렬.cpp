@@ -1,72 +1,76 @@
-//#include <iostream>
-//using namespace std;
-//
-//const int SIZE = 13;
-//
-//void swap(int* a, int* b);
-//void merge(int* arr1, int* arr2);
-//void mergeSort(int* arr, int first, int last);
-//static int* arr3 = new int[SIZE];
-//
-//int main()
-//{
-//    int arr[SIZE] = { 2,4,6,8,11,13 , 1,2,3,4,9,16,21 };
-//
-//    mergeSort(arr, 0, SIZE);
-//
-//    for (int i = 0; i < SIZE; i++)
-//        cout << arr3[i] << " ";
-//    cout << endl;
-//
-//    return 0;
-//}
-//
-//void swap(int* a, int* b)
-//{
-//    int temp = *a;
-//    *a = *b;
-//    *b = temp;
-//}
-//
-//void merge(int* arr1, int* arr2, int first, int last)
-//{
-//    int pa = 0, pb = 0, pc = 0;
-//
-//    while (pa != 6 || pb == 7)
-//    {
-//        arr3[pc++] = (arr1[pa] < arr2[pb]) ? arr1[pa++] : arr2[pb++];
-//    }
-//
-//    if (pa == 6)
-//    {
-//        while (pb != 7)
-//            arr3[pc++] = arr2[pb++];
-//    }
-//    else
-//    {
-//        while (pa != 6)
-//            arr3[pc++] = arr1[pa++];
-//    }
-//}
-//
-//void mergeSort(int* arr, int first, int last)
-//{
-//    if (first < last)
-//    {
-//        int center = (first + last) / 2;
-//        int* arr1 = new int[center];
-//        int* arr2 = new int[center + 1];
-//
-//        mergeSort(arr, first, center);
-//        mergeSort(arr, center + 1, last);
-//        for (int i = 0; i < center; i++)
-//        {
-//            arr1[i] = arr[i];
-//            arr2[i] = arr[center + i];
-//        }
-//        arr2[center] = arr[2 * center];
-//
-//        merge(arr1, arr2, first, last);
-//    }
-//
-//}
+#include <iostream>
+using namespace std;
+
+const int SIZE = 8;
+int* arr2;
+int arr[SIZE] = { 6,5,3,1,8,7,2,4 }; // 정렬할 배열
+
+void merge(int left, int right);
+void mergeSort(int left, int right);
+
+int main()
+{
+    arr2 = new int[SIZE];
+
+    cout << "BEFORE : ";
+    for (int i = 0; i < SIZE; i++)
+        cout << arr[i] << " ";
+    cout << endl;
+
+    mergeSort(0, SIZE - 1);
+
+    cout << "AFTER : ";
+    for (int i = 0; i < SIZE; i++)
+        cout << arr[i] << " ";
+    cout << endl;
+
+    return 0;
+}
+
+void merge(int left, int right)
+{
+    int mid = (left + right) / 2;
+    int tempMid = mid;
+
+    int i = left;         // arr2 증가용 인덱스
+    int tempL = left;   // 앞부분 증가용 인덱스
+    mid = mid + 1;      // 뒷부분 증가용 인덱스
+
+    // 좌우로 나눠진 배열의 첫번째 원소끼리 비교
+    while (tempL <= tempMid && mid <= right)
+    {
+        if (arr[tempL] > arr[mid])
+            arr2[i++] = arr[mid++];
+        else
+            arr2[i++] = arr[tempL++];
+    }
+
+    // 뒷부분의 병합이 먼저 끝났을 때
+    if (mid > right)
+    {
+        while (i <= right)
+            arr2[i++] = arr[tempL++];
+    }
+    else // 앞부분의 병합이 먼저 끝났을 때
+    {
+        while (i <= right)
+            arr2[i++] = arr[mid++];
+    }
+
+    // 정렬한 arr2를 실제 배열 arr에 다시 넣음
+    for (int j = left; j <= right; j++)
+        arr[j] = arr2[j];
+}
+
+void mergeSort(int left, int right)
+{ // divide
+    if (left < right)
+    {
+        int mid = (left + right) / 2;
+
+        mergeSort(left, mid);           //배열 앞부분 분할
+        mergeSort(mid + 1, right);  // 배열 뒷부분 분할
+
+        merge(left, right);      // 배열 앞부분 뒷부분 정렬
+    }
+}
