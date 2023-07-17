@@ -220,7 +220,10 @@
     <ClCompile Include="20230713_링크드리스트.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="Sort_Time_Compare.cpp" />
+    <ClCompile Include="20230717._배열링크드리스트.cpp" />
+    <ClCompile Include="정렬시간비교.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="StopWatch.cpp" />
   </ItemGroup>
   <ItemGroup>

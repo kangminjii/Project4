@@ -135,8 +135,11 @@
     <ClCompile Include="20230713_링크드리스트.cpp">
       <Filter>소스 파일\제8장 List</Filter>
     </ClCompile>
-    <ClCompile Include="Sort_Time_Compare.cpp">
-      <Filter>소스 파일</Filter>
+    <ClCompile Include="정렬시간비교.cpp">
+      <Filter>소스 파일\제6장 정렬</Filter>
+    </ClCompile>
+    <ClCompile Include="20230717._배열링크드리스트.cpp">
+      <Filter>소스 파일\제8장 List</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
