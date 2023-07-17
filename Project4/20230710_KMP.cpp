@@ -36,3 +36,4 @@ void KMP_Search(string question, string pattern)
 
     delete[] pi;
 }
+

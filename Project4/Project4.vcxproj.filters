@@ -135,6 +135,9 @@
     <ClCompile Include="20230713_링크드리스트.cpp">
       <Filter>소스 파일\제8장 List</Filter>
     </ClCompile>
+    <ClCompile Include="Sort_Time_Compare.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="20230612_stackCalculate.h">
