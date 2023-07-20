@@ -13,7 +13,6 @@ Q1. 학생관리하는 구조체를 생성하고 번호, 이름을 멤버로 포함 / 구조체 리스트 만들
 #include <string>
 using namespace std;
 
-
 //노드
 typedef struct Student
 {
@@ -28,7 +27,6 @@ typedef struct StudentList
     Student* head;
 };
 
-void Initialize(StudentList* list);
 void Insert(StudentList* list);
 void Delete(StudentList* list);
 void Print(StudentList* list);
@@ -36,7 +34,7 @@ void Print(StudentList* list);
 int main()
 {
     StudentList* list = new StudentList;
-    Initialize(list);
+    list->head = NULL;
 
     int number = 1;
 
@@ -61,12 +59,6 @@ int main()
     }
 
     return 0;
-}
-
-// 리스트 초기화
-void Initialize(StudentList* list)
-{
-    list->head = NULL;
 }
 
 // 입력

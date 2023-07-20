@@ -1,3 +1,14 @@
+/*
+Q1. 학생관리하는 구조체를 생성하고 번호, 이름을 멤버로 포함 / 구조체 리스트 만들고
+
+   1. 입력
+      > 번호, 이름받아 리스트에 추가
+   2. 삭제
+      > 번호 입력받아 리스트에서 삭제
+   3. 전체 출력
+      > 리스트에 있는 모든 학생의 번호, 이름 출력
+*/
+
 #include <iostream>
 #include <string>
 using namespace std;
@@ -53,12 +64,12 @@ int main()
     return 0;
 }
 
-static int count = 1;
 
 // 입력
 void Insert(StudentList* list)
 {
     Student* stu = new Student;
+    static int count = 1;
 
     // 새 노드 입력
     cout << endl;
@@ -69,24 +80,26 @@ void Insert(StudentList* list)
     cin >> stu->name;
     stu->next = NULL;
 
+    
     Student* temp = list->head;
 
     // list의 head가 비어있을 때
     if (list->head == NULL)
     {
         list->head = stu;  // 바로 입력
-        count = 1;
         stu->index = count;
         count++;
     }
     else
     {
         //  탐색후
-        while (temp->next != NULL)
+        while (temp->index != -1)
         {
             temp = temp->next;
         }
         temp->next = stu; // 입력
+        stu->index = count;
+        count++;
     }
 }
 
@@ -144,8 +157,9 @@ void Print(StudentList* list)
             cout << "======================" << endl;
             cout << "번호: " << temp->number << endl;
             cout << "이름: " << temp->name << endl;
+            cout << "인덱스: " << temp->index << endl;
             cout << "======================" << endl;
-            temp = temp->next;
+            temp = temp->index;
         }
     }
 }
