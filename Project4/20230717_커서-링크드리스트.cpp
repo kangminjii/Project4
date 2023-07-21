@@ -33,7 +33,6 @@ void Insert(StudentList* list);
 void Delete(StudentList* list);
 void Print(StudentList* list);
 
-
 int main()
 {
     StudentList* list = new StudentList;

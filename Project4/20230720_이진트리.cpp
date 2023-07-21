@@ -30,7 +30,7 @@ typedef struct StudentList
 
 void Insert(StudentList* list);
 void Delete(StudentList* list);
-void Print(StudentList* list);
+void Print(Student* list);
 
 static int studentNumber = 0;
 
@@ -54,7 +54,7 @@ int main()
             Delete(list);
             break;
         case 3:
-            Print(list);
+            Print(list->root);
             break;
         default:
             break;
@@ -129,6 +129,7 @@ void Insert(StudentList* list)
                 temp = temp->left;
             }
         }
+        // 추가
         // right 자식
         if (stu->number > temp->number)
         {
@@ -148,33 +149,121 @@ void Insert(StudentList* list)
 
 void Delete(StudentList* list)
 {
+    int eraseNumber = 0;
+    cout << endl;
+    cout << "삭제하고싶은 번호를 입력해주세요." << endl;
+    cout << "번호 : ";
+    cin >> eraseNumber;
 
-}
-
-void Print(StudentList* list)
-{
-    Student* temp = list->root;
-    if (temp == NULL)
-        cout << "정보가 존재하지 않습니다." << endl;
-    else
+    if (list->root == NULL)
     {
-        // 제일 왼쪽 노드로 이동
-        while (temp != NULL)
+        cout << "삭제할 노드가 존재하지 않습니다." << endl;
+        return;
+    }
+
+    Student* temp = list->root;
+    Student* parent = list->root;
+
+    // 탐색
+    while (temp->number != eraseNumber)
+    {
+        // 오른쪽 트리
+        if (eraseNumber > temp->number)
         {
-            if (temp->left != NULL)
-            {
-                temp = temp->left;
-                continue;
-            }
+            if (temp->right == NULL) break;
+            parent = temp;
+            temp = temp->right;
         }
-        // 부모노드로 이동?????????
-        while (temp != NULL)
+        // 왼쪽 트리
+        else
         {
-            cout << "======================" << endl;
-            cout << "번호: " << temp->number << endl;
-            cout << "이름: " << temp->name << endl;
-            cout << "======================" << endl;
+            if (temp->left == NULL) break;
+            parent = temp;
             temp = temp->left;
         }
+    }
+
+    // 삭제
+    while (1)
+    {
+        // 자식이 없을 때
+        if (temp->left == NULL && temp->right == NULL)
+        {
+            if (parent->right == temp)
+                parent->right = NULL;
+            else if (parent->left == temp)
+                parent->left = NULL;
+            else // parent == temp == root
+                list->root = NULL;
+
+            studentNumber--;
+            delete temp;
+            break;
+        }
+        // 자식이 하나일 때(right)
+        else if (temp->left == NULL)
+        {
+            Student* tempRight = temp->right;
+
+            if (parent->right == temp)
+                parent->right = tempRight;
+            else if (parent->left == temp)
+                parent->left = tempRight;
+            else // parent == temp == root
+                list->root = tempRight;
+
+            studentNumber--;
+            delete temp;
+            break;
+        }
+        // 자식이 하나일 때(left)
+        else if (temp->right == NULL)
+        {
+            Student* tempLeft = temp->left;
+
+            if (parent->right == temp)
+                parent->right = tempLeft;
+            else if (parent->left == temp)
+                parent->left = tempLeft;
+            else // parent == temp == root
+                list->root = tempLeft;
+
+            studentNumber--;
+            delete temp;
+            break;
+        }
+        // 자식이 둘일 때
+        else
+        {
+            // 왼쪽 트리의 가장 큰 값을 삭제 위치 값과 교체 후 삭제
+            Student* search = temp;
+            search = search->left;
+
+            while (search->right != NULL)
+            {
+                parent = search;
+                search = search->right;
+            }
+            temp->number = search->number;
+
+            temp = search;
+        }
+    }
+}
+
+void Print(Student* temp)
+{
+    while (temp != NULL)
+    {
+        // 중위 순회 : 왼쪽 자식 -> 노드 -> 오른쪽 자식
+        if(temp->left != NULL)
+            Print(temp->left);
+        cout << "======================" << endl;
+        cout << "번호: " << temp->number << endl;
+        cout << "이름: " << temp->name << endl;
+        cout << "======================" << endl;
+        if(temp->right != NULL)
+            Print(temp->right);
+        break;
     }
 }

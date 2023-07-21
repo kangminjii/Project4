@@ -40,6 +40,9 @@
     <Filter Include="소스 파일\제9장 트리">
       <UniqueIdentifier>{6f37f63a-737b-44bf-b66b-83ea61fd849c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\제10장 해시">
+      <UniqueIdentifier>{1f3fb815-ad64-44cf-ad09-b4715fbd6fcc}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="StopWatch.cpp">
@@ -149,6 +152,9 @@
     </ClCompile>
     <ClCompile Include="20230720_이진트리.cpp">
       <Filter>소스 파일\제9장 트리</Filter>
+    </ClCompile>
+    <ClCompile Include="20230721_해시-체인법.cpp">
+      <Filter>소스 파일\제10장 해시</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
