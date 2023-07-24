@@ -156,6 +156,9 @@
     <ClCompile Include="20230721_해시-체인법.cpp">
       <Filter>소스 파일\제10장 해시</Filter>
     </ClCompile>
+    <ClCompile Include="20230605_Q9.cpp">
+      <Filter>소스 파일\제3장 검색</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="20230612_stackCalculate.h">

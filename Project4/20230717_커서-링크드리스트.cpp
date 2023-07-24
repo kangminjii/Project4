@@ -32,11 +32,15 @@ typedef struct StudentList
 void Insert(StudentList* list);
 void Delete(StudentList* list);
 void Print(StudentList* list);
+const int SIZE = 8;
 
 int main()
 {
-    StudentList* list = new StudentList;
-    list->head = NULL;
+    StudentList* list = new StudentList[SIZE];
+    for (int i = 0; i < SIZE; i++)
+    {
+        list[i].head = NULL;
+    }
 
     int number = 1;
 
