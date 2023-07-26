@@ -1,26 +1,14 @@
-/*
-Q1. 학생관리하는 구조체를 생성하고 번호, 이름을 멤버로 포함 / 구조체 리스트 만들고
-
-   1. 입력
-      > 번호, 이름받아 리스트에 추가
-   2. 삭제
-      > 번호 입력받아 리스트에서 삭제
-   3. 전체 출력
-      > 리스트에 있는 모든 학생의 번호, 이름 출력
-*/
-
 #include <iostream>
 #include <string>
 using namespace std;
 
-
 //노드
 typedef struct Student
 {
-    int number;      // 번호
+    int number;          // 번호
     string name;     // 이름
-    int index;       // 인덱스 값
-    Student* next;   // 노드
+    Student* next;  // 노드
+    int nextNumber;
 };
 
 //리스트
@@ -32,17 +20,20 @@ typedef struct StudentList
 void Insert(StudentList* list);
 void Delete(StudentList* list);
 void Print(StudentList* list);
-const int SIZE = 8;
-
+static int indexCount = 0;
+const int SIZE = 10;
 int main()
 {
-    StudentList* list = new StudentList[SIZE];
-    for (int i = 0; i < SIZE; i++)
-    {
-        list[i].head = NULL;
-    }
+    StudentList* list = new StudentList;
+    list->head = NULL;
 
     int number = 1;
+
+    int nextNumber[SIZE];
+    for (int i = 0; i < SIZE; i++)
+    {
+        nextNumber[i] = i;
+    }
 
     while (number != 0)
     {
@@ -51,6 +42,11 @@ int main()
         switch (number)
         {
         case 1:
+            if (indexCount >= SIZE)
+            {
+                cout << "지정된 크기를 넘어서 입력이 불가능합니다." << endl;
+                break;
+            }
             Insert(list);
             break;
         case 2:
@@ -67,12 +63,10 @@ int main()
     return 0;
 }
 
-
 // 입력
 void Insert(StudentList* list)
 {
     Student* stu = new Student;
-    static int count = 1;
 
     // 새 노드 입력
     cout << endl;
@@ -83,29 +77,30 @@ void Insert(StudentList* list)
     cin >> stu->name;
     stu->next = NULL;
 
-    
     Student* temp = list->head;
 
     // list의 head가 비어있을 때
     if (list->head == NULL)
     {
         list->head = stu;  // 바로 입력
-        stu->index = count;
-        count++;
+        stu->nextNumber = -1;
     }
     else
     {
-        //  탐색후
-        while (temp->index != -1)
+        //  탐색후 입력
+        while (temp->next != NULL)
         {
             temp = temp->next;
         }
-        temp->next = stu; // 입력
-        stu->index = count;
-        count++;
+        temp->nextNumber = indexCount;
+        stu->nextNumber = -1;
+        temp->next = stu;
     }
+
+    indexCount++;
 }
 
+// 삭제 구현 X
 // 삭제
 void Delete(StudentList* list)
 {
@@ -155,14 +150,13 @@ void Print(StudentList* list)
         cout << "정보가 존재하지 않습니다." << endl;
     else
     {
-        while (temp->index != -1)
+        while (temp != NULL)
         {
             cout << "======================" << endl;
             cout << "번호: " << temp->number << endl;
             cout << "이름: " << temp->name << endl;
-            cout << "인덱스: " << temp->index << endl;
             cout << "======================" << endl;
-            temp = temp->index;
+            temp = temp->next;
         }
     }
 }
